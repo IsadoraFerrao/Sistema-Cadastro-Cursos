@@ -3,32 +3,15 @@
 {% block principal %}
 
   <h1 class="text-body-emphasis">Cursos online</h1>
-
+  {% if sucesso %}
+    <p class="alert alert-success"> Mensagem enviada com sucesso </p>
+  {% endif %} 
+  
   <form action="" method="POST" id="form">
     {% csrf_token %}
-    <div class="row">
-      <div class="col-md-4">
-        <label for="id_nome" class="form-label">Nome</label>
-        <input name="nome" type="text" class="form-control" id="id_nome">
-      </div>
-      <div class="col-md-4">
-        <label for="id_email" class="form-label">Email</label>
-        <input name="email" type="text" class="form-control" id="id_email">
-      </div>
-      <div class="col-md-4">
-        <label for="id_senha" class="form-label">Senha</label>
-        <input name="senha" type="password" class="form-control" id="id_senha">
-      </div>
-      
-      
-      <div class="col-md-3">
-        <div class="d-grid gap-2">
-          <br>
-          <button type="submit" class="btn btn-primary btn-block">Finalizar cadastro</button>
-        </div>
-      </div>
-    </div>
-  </form>
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary btn-block">Finalizar cadastro</button>
+  </form>    
  
  
 {% endblock %}
