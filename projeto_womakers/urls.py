@@ -23,4 +23,5 @@ urlpatterns = [
     path('', inicio),
     path('cadastro/', cadastro),
     path('curso/', include('cursos.urls', namespace='cursos')),
+    path('api-auth/', include(rest_framework.urls)),
 ]
