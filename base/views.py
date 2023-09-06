@@ -8,15 +8,13 @@ def inicio(request):
 
 
 def cadastro(request):
-    sucesso = False
-    if request.method == 'GET':
-        form = CadastroForm()
-    else:
-        form = CadastroForm(request.POST)
-        if form.is_valid():
-            sucesso = True
+    sucesso = False   
+    form = CadastroForm(request.POST or None)
+    if form.is_valid(): 
+        sucesso = True
+        form.save()
     contexto = {
-        'form': form,
+        'form':form,
         'sucesso': sucesso
     }
     return render(request, 'cadastro.html', contexto)

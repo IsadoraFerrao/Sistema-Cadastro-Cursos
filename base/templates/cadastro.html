@@ -5,13 +5,13 @@
   <h1 class="text-body-emphasis">Cursos online</h1>
   {% if sucesso %}
     <p class="alert alert-success"> Mensagem enviada com sucesso </p>
-  {% endif %} 
+  {% else %} 
   
   <form action="" method="POST" id="form">
     {% csrf_token %}
     {% bootstrap_form form %}
     <button type="submit" class="btn btn-primary btn-block">Finalizar cadastro</button>
   </form>    
- 
+{% endif %} 
  
 {% endblock %}
